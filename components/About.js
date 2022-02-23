@@ -1,25 +1,13 @@
-import { NavigationContainer } from "@react-navigation/native"
 import React from "react"
 import {View, Button, Text, StyleSheet} from 'react-native'
 
-function About({navigation}) {
+function About() {
     return (
         <View>
-            <Text style={style.title}>A propos</Text>
-            <Button
-                title="Rechercher"
-                onPress={() => navigation.navigate('Search')} 
-            />  
+            <Text>Ceci est une application test pour apprendre le react native</Text>  
         </View>
     )
 }
-
-const style = StyleSheet.create ({
-    title : {
-        fontSize:22,
-        margin:10,
-    }
-})
 
 
 export default About
