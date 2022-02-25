@@ -1,27 +1,50 @@
 import { StyleSheet } from "react-native";
 
+const color = '#0066CC'
+
 export default StyleSheet.create({
+    searchcontainer :{
+        flexDirection: "row"
+    },
+    
+    textinputcontainer : {
+        margin:10,
+        backgroundColor:"white", 
+        justifyContent:"center",
+        borderRadius:3,
+        flex: 1        
+    },
     textinput : {
         marginLeft:10,
-        backgroundColor:"white"
-    },
-    textinputcontainer : {
-        backgroundColor:"white",
-        margin : 10,
-        flex:1,
-        justifyContent: "center",
-        borderRadius: 3
     },
     button : {
-        backgroundColor:"#CC0000",
+        backgroundColor:color,
         margin:10,
+        paddingVertical:4,
         marginLeft:0,
         justifyContent:"center",
         borderRadius: 3
     },
-    searchcontainer :{
-        flex:0.1,
-        flexDirection: "row",
+    textcontainer : {
+        margin:10,
+        padding:10,
+        backgroundColor:'white',
+        borderRadius: 3
+    },
+    text:{
+        marginBottom:5,
+        textAlign:'justify',
+        fontSize:16
+    },
+    textlink:{
+        color:color,
+        textAlign:"center",
+        fontWeight:'bold',
+        fontVariant:['small-caps'],
+        textDecorationLine:'underline'
+    },
+    result :{
+        margin:10
     }
 
 })
