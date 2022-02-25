@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {TextInput, View, TouchableHighlight, ScrollView} from 'react-native'
+import {TextInput, View, TouchableHighlight, ScrollView, Keyboard} from 'react-native'
 import style from '../Style.js'
 import { Ionicons } from '@expo/vector-icons';
 import Result from './Result.js';
@@ -29,12 +29,13 @@ function Search() {
                 <TouchableHighlight
                     activeOpacity={0.3}
                     style={style.button}
-                    onPress={submit}
+                    onPress={() => {submit(search), onChangeSearch(''), Keyboard.dismiss()}}
+                    keyboardShouldPersistTaps='never'
                 >
                     <Ionicons name="search-outline" size={25} color="white" style={{marginHorizontal:6}}/>
                 </TouchableHighlight>
             </View>
-            <ScrollView>
+            <ScrollView keyboardDismissMode='on-drag'>
                 {showResult && <Result city={city}/>}
             </ScrollView>
         </View>

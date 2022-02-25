@@ -44,7 +44,21 @@ export default StyleSheet.create({
         textDecorationLine:'underline'
     },
     result :{
-        margin:10
+    },
+    day:{
+        backgroundColor:"white",
+        padding:10,
+        marginVertical:5,
+        marginHorizontal:10,
+        width:355
+    },
+    daytitle :{
+        fontWeight:"bold"
+    },
+    city:{
+        fontSize:20,
+        marginLeft:10,
+        fontWeight:"600"
     }
 
 })
