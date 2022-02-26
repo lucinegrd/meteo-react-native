@@ -50,15 +50,35 @@ export default StyleSheet.create({
         padding:10,
         marginVertical:5,
         marginHorizontal:10,
-        width:355
+        flex:1,
+        flexDirection:"row",
+        justifyContent:"space-between"
     },
     daytitle :{
-        fontWeight:"bold"
+        fontSize:22,
+        fontWeight:"600"
     },
     city:{
         fontSize:20,
         marginLeft:10,
         fontWeight:"600"
+    },
+    dayitem:{
+        alignItems:"center",
+        justifyContent:"center",
+        margin:5
+    },
+    dayImage:{
+        height:50,
+        width:50
+    },
+    dayIcon:{
+        height:30,
+        width:30
+    },
+    dayTemp:{
+        fontSize:20,
+        fontWeight:"500"
     }
 
 })

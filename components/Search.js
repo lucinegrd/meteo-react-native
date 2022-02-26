@@ -14,7 +14,7 @@ function Search() {
         onChangeCity(search)
         changeShowResult(true)
     }
-
+    
     return (
         <View>
             <View style={style.searchcontainer}>
