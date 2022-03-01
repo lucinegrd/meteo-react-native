@@ -3,6 +3,7 @@ import {TextInput, View, TouchableHighlight, ScrollView, Keyboard} from 'react-n
 import style from '../Style.js'
 import { Ionicons } from '@expo/vector-icons';
 import Result from './Result.js';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 
 function Search() {
@@ -14,9 +15,11 @@ function Search() {
         onChangeCity(search)
         changeShowResult(true)
     }
-    
+
+    const tabBarHeight = useBottomTabBarHeight();
+
     return (
-        <View>
+        <View style={{paddingBottom:tabBarHeight+10}}>
             <View style={style.searchcontainer}>
                 <View style={style.textinputcontainer}>
                     <TextInput
@@ -24,6 +27,7 @@ function Search() {
                         value={search}
                         placeholder="Rechercher une ville"
                         style={style.textinput}
+                        onSubmitEditing={() => {submit(search), onChangeSearch(''), Keyboard.dismiss()}}
                     />
                 </View>
                 <TouchableHighlight

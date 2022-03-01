@@ -79,6 +79,11 @@ export default StyleSheet.create({
     dayTemp:{
         fontSize:20,
         fontWeight:"500"
+    }, 
+    today: {
+        flexDirection:"row",
+        flex :1,
+        alignItems:"center"
     }
 
 })

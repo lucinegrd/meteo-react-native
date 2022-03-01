@@ -16,7 +16,7 @@ function Result({city}) {
             .then((res)=>{
                 setMeteo(null)
                 if (res.data.length !== 0) {
-                    setVille(res.data[0].local_names != "undefined" ? res.data[0].local_names.fr : res.data[0].name)
+                    setVille(res.data[0].local_names ? res.data[0].local_names.fr : res.data[0].name)
                     const lat = res.data[0].lat
                     const long = res.data[0].lon
                     axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&lang=fr&exclude=hourly,minutely&units=metric&appid=${WEATHER_MAP_API_KEY}`)
@@ -68,31 +68,29 @@ function Result({city}) {
         : meteo == "" ? <Text style={Style.city}>Ville non trouvée</Text> : 
             <View>
                 <Text style={Style.city}>{ville}</Text>
-                <View style={Style.day}>
+                <View style={[Style.day, {backgroundColor:"#D0E8FF"}]}>
                     <View style={Style.dayitem}>
-                        <Text style={Style.daytitle}>{days[new Date(meteo.current.dt*1000).getDay()-1]}</Text>
-                        {image()}
-                        <Text style={Style.dayTemp}>{Math.round(meteo.current.temp)}°</Text>
-                    </View>
-                    <View>
-                        <View style={Style.dayitem}>
-                            <Image style={Style.dayIcon} source={require('../assets/iconWeather/sunrise.png')}/>
-                            <Text>{new Date(meteo.current.sunrise*1000).getHours() + "h" + new Date(meteo.current.sunrise*1000).getMinutes()}</Text>
-                        </View>
-                        <View style={Style.dayitem}>
-                            <Image style={Style.dayIcon} source={require('../assets/iconWeather/sunset.png')}/>
-                            <Text>{new Date(meteo.current.sunset*1000).getHours() + "h" + new Date(meteo.current.sunset*1000).getMinutes()}</Text>
+                        <Text style={Style.daytitle}>TODAY</Text>
+                        <View style={Style.today}>
+                            {image()}
+                            <Text style={Style.dayTemp}>{Math.round(meteo.current.temp)}°</Text>
                         </View>
                     </View>
-                    <View>
-                        <View style={Style.dayitem}>
-                            <Image style={Style.dayIcon} source={require('../assets/iconWeather/vent.png')}/>
-                            <Text>{Math.round(meteo.current.wind_speed*3.6)} km/h</Text>
-                        </View>
-                        <View style={Style.dayitem}>
-                            <Image style={Style.dayIcon} source={require('../assets/iconWeather/nuage.png')}/>
-                            <Text>{meteo.current.clouds}%</Text>
-                        </View>
+                    <View style={Style.dayitem}>
+                        <Image style={Style.dayIcon} source={require('../assets/iconWeather/vent.png')}/>
+                        <Text>{Math.round(meteo.current.wind_speed*3.6)} km/h</Text>
+                    </View>
+                    <View style={Style.dayitem}>
+                        <Image style={Style.dayIcon} source={require('../assets/iconWeather/nuage.png')}/>
+                        <Text>{meteo.current.clouds}%</Text>
+                    </View>
+                    <View style={Style.dayitem}> 
+                        <Image style={Style.dayIcon} source={require('../assets/iconWeather/sunrise.png')}/>
+                        <Text>{new Date(meteo.current.sunrise*1000).getHours() + "h" + new Date(meteo.current.sunrise*1000).getMinutes()}</Text>
+                    </View>
+                    <View style={Style.dayitem}>
+                        <Image style={Style.dayIcon} source={require('../assets/iconWeather/sunset.png')}/>
+                        <Text>{new Date(meteo.current.sunset*1000).getHours() + "h" + new Date(meteo.current.sunset*1000).getMinutes()}</Text>
                     </View>
                 </View>
                 {Object.keys(meteo.daily).map((index) => <Day key={index} day={meteo.daily[index]}/>)}

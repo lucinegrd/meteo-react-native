@@ -36,7 +36,6 @@ export default function App() {
 						tabBarIcon: ({color, size}) => <Ionicons name="information-circle-outline" size={size} color={color} />,
 						tabBarShowLabel : false
 					}}
-					
 				/>
 			</Tab.Navigator>
 		</NavigationContainer>

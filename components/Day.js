@@ -9,7 +9,6 @@ function Day({day}){
     const id = day.weather[0].icon
 
     const url = '../assets/iconWeather/'.concat(id, '.png')
-    console.log(url)
 
     function image(){
         switch (day.weather[0].icon) {
@@ -63,16 +62,6 @@ function Day({day}){
                 </View>
                 <View>
                     <View style={Style.dayitem}>
-                        <Image style={Style.dayIcon} source={require('../assets/iconWeather/sunrise.png')}/>
-                        <Text>{sunrise}</Text>
-                    </View>
-                    <View style={Style.dayitem}>
-                        <Image style={Style.dayIcon} source={require('../assets/iconWeather/sunset.png')}/>
-                        <Text>{sunset}</Text>
-                    </View>
-                </View>
-                <View>
-                    <View style={Style.dayitem}>
                         <Image style={Style.dayIcon} source={require('../assets/iconWeather/vent.png')}/>
                         <Text>{Math.round(day.wind_speed*3.6)} km/h</Text>
                     </View>
@@ -89,6 +78,16 @@ function Day({day}){
                     <View style={Style.dayitem}>
                         <Image style={Style.dayIcon} source={require('../assets/iconWeather/nuage.png')}/>
                         <Text>{day.clouds}%</Text>
+                    </View>
+                </View>
+                    <View>
+                    <View style={Style.dayitem}>
+                        <Image style={Style.dayIcon} source={require('../assets/iconWeather/sunrise.png')}/>
+                        <Text>{sunrise}</Text>
+                    </View>
+                    <View style={Style.dayitem}>
+                        <Image style={Style.dayIcon} source={require('../assets/iconWeather/sunset.png')}/>
+                        <Text>{sunset}</Text>
                     </View>
                 </View>              
             </View>
